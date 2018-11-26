@@ -63,9 +63,14 @@ let identity = (val) => {
   //    val > 2
   // }) --> 3
   let filter = (collection, test) => {
-      var res = collection.filter(i =>  i > 2 ) 
-      console.log(res);
-  };
+        res =[]
+      for (var i = 0; i < collection.length; i++) {
+        if (test(collection[i]))
+        res.push(collection[i])
+         }
+         return res;
+      }
+    
   // filter() returns an arry. Cannot get the test() to run as a param
   
   
@@ -75,12 +80,14 @@ let identity = (val) => {
   //    val < 3
   // }) --> 4, 5
   let reject = (collection, test) => {
+      res =[]
     for (var i = 0; i < collection.length; i++) {
-      if (collection[i] > 3) {
-        console.log(collection[i]);
+      if (!test(collection[i]))
+      res.push(collection[i])
        }
+       return res;
     }
-  };
+  
   
   // Produce a duplicate-free version of the array.
   //
